@@ -1,0 +1,5 @@
+Django==1.8.2
+argparse==1.2.1
+django-admin-bootstrapped==2.5.1
+ipython==3.2.0
+wsgiref==0.1.2
