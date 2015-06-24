@@ -17,3 +17,10 @@ pip-delete-this-directory.txt
 
 # Django stuff:
 *.log
+
+# Uploaded files
+uploads/*
+
+# Databases
+*.sql
+*.sqlite3
