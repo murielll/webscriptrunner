@@ -37,6 +37,10 @@ $( document ).ready(function() {
     $('a[act="runscript"]').click(function () {
 
         var script_id = $(this).attr("script_id")
+        var spinner = '<i class="fa fa-cog fa-spin fa-2x"></i>'
+        $('#stdOut').empty();
+        $('#stdOut').html(spinner);
+        $('#stdErr').html(spinner);
 
         $.ajax({
             url: '/',
@@ -48,15 +52,21 @@ $( document ).ready(function() {
             success: function(data) {
                 if (data.stdout){
                     $('#stdOut').empty();
-                    $('#stdOut').html(data.stdout);                    
+                    $('#stdOut').html(data.stdout);
+                } else {
+                    $('#stdOut').html('No data.');
                 }
 
                 if (data.stderr) {
                     $('#stdErr').empty();
                     $('#stdErr').html(data.stderr);
+                } else {
+                    $('#stdErr').html('No data.');
                 }
             },
             error: function( status, errorThrown ) {
+                $('#stdOut').html('No data.');
+                $('#stdErr').html('No data.');
                 $('#appErr').show();
                 $('#appErr').html("Web application error!" + "<br/><br/>" + "Error description: " + errorThrown );
                 console.log( "Error: " + errorThrown );
