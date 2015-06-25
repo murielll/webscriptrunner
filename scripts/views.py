@@ -51,6 +51,8 @@ def runscript(scriptname, args, interpreter='/bin/bash'):
                    stdout=PIPE,
                    stderr=PIPE)
     stdOut, stdErr = script.communicate()
+    stdOut = stdOut.replace('\n', '<br>')
+    stdErr = stdErr.replace('\n', '<br>')
     return {'status': 'OK',
             'stdout': stdOut,
             'stderr': stdErr}
