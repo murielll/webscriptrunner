@@ -1,5 +1,4 @@
 from subprocess import Popen, PIPE
-from StringIO import StringIO
 import getpass
 
 from django.shortcuts import render
@@ -45,8 +44,6 @@ class Home(View):
 
 
 def runscript(scriptname, args, interpreter='/bin/bash'):
-    stdOut = StringIO()
-    stdErr = StringIO()
     script = Popen([interpreter, scriptname, args],
                    stdout=PIPE,
                    stderr=PIPE)
