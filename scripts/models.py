@@ -16,3 +16,6 @@ class Script(Model):
         storage, path = self.filename.storage, self.filename.path
         super(Script, self).delete(*args, **kwargs)
         storage.delete(path)
+
+    def __str__(self):
+        return u'%s' % self.name
