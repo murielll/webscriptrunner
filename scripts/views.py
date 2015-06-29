@@ -28,7 +28,7 @@ class Home(View):
                  )
 
         try:
-            script = Script.objects.get(pk=script_id)
+            script = Script.objects.get(pk=script_id, visible=True)
         except Script.DoesNotExist:
             return JsonResponse(
                 {'status': 'Error',
